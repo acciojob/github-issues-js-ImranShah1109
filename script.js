@@ -39,19 +39,19 @@ nxtBtn.addEventListener('click', () => {
 });
 
 prvBtn.addEventListener('click', () => {
-	pageNumber--;
 	if(pageNumber <= 1){
-		prvBtn.disabled = true;
+		// prvBtn.disabled = true;
 	}
 	else{
+        pageNumber--;
 		prvBtn.disabled = false;
+        let list = document.querySelector('.list');
+        let item = document.getElementsByClassName('item');
+        // console.log(item);
+        list.remove(item);
+        fetchData(pageNumber);
+        pageNumH3.innerText = pageNumber;
 	}
-	let list = document.querySelector('.list');
-    let item = document.getElementsByClassName('item');
-    console.log(item);
-    list.remove(item);
-	fetchData(pageNumber);
-	pageNumH3.innerText = pageNumber;
 });
 
 fetchData(1);
