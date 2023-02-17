@@ -44,7 +44,7 @@ prvBtn.addEventListener('click', () => {
 	}
 	else{
         pageNumber--;
-		prvBtn.disabled = false;
+		// prvBtn.disabled = false;
         let list = document.querySelector('.list');
         let item = document.getElementsByClassName('item');
         // console.log(item);
