@@ -12,10 +12,12 @@ function fetchData(pageNumber) {
 		.then((response) =>response.json())
 		.then((data) => {
 			// console.log(data.id);
-			list = document.createElement('ul');
+			let list = document.createElement('ul');
+            list.className = "list";
 			for (let d of data) {
 				// console.log(d.id);
                 let li = document.createElement('li');
+                li.className = "item";
                 li.innerHTML = d.id;
                 list.appendChild(li);
 			}
@@ -28,6 +30,10 @@ nxtBtn.addEventListener('click', () => {
 	if(pageNumber == 2){
 		prvBtn.disabled = false;
 	}
+	let list = document.querySelector('.list');
+    let item = document.getElementsByClassName('item');
+    console.log(item);
+    list.remove(item);
 	fetchData(pageNumber);
 	pageNumH3.innerText = pageNumber;
 });
@@ -40,6 +46,10 @@ prvBtn.addEventListener('click', () => {
 	else{
 		prvBtn.disabled = false;
 	}
+	let list = document.querySelector('.list');
+    let item = document.getElementsByClassName('item');
+    console.log(item);
+    list.remove(item);
 	fetchData(pageNumber);
 	pageNumH3.innerText = pageNumber;
 });
